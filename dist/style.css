@@ -44,7 +44,7 @@ body {
 
 .right {
     padding-top: 100px;
-    gap: 30px;
+    gap: 40px;
     margin-right: 5vw;
 }
 
@@ -58,7 +58,10 @@ body {
 }
 
 .moredetails {
-    font-size: 22px;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 .timeDate {
