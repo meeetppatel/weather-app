@@ -81,11 +81,38 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _fetchapi__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
 
 
-console.log((0,_fetchapi__WEBPACK_IMPORTED_MODULE_0__.fetchWeatherData)("poland").then(data => {
-    console.log(data.weather[0]);
-} ));
+
 
 console.log("hello");
+
+const search = document.getElementById("search");
+const place = document.querySelector(".place");
+
+search.addEventListener("keypress", (e) => {
+    if(e.key === 'Enter'){
+        getdata(search.value);
+    }
+})
+
+const getdata = (location) => {
+    console.log((0,_fetchapi__WEBPACK_IMPORTED_MODULE_0__.fetchWeatherData)(location).then(data => {
+        if(data.cod == 404){
+            place.innerText = "Invalid City";
+        }else{
+            displayweather(data);
+        }
+    } ));
+}
+
+const displayweather = (data) =>{
+    place.innerText = data.name;
+    console.log(data.name);
+    console.log(data.main.temp);
+    console.log(data.main.feels_like);
+    console.log(data.main.humidity);
+    console.log(data.weather.description);
+    console.log(data.weather[0].main);
+}
 })();
 
 /******/ })()
