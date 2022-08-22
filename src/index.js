@@ -7,17 +7,21 @@ console.log("hello");
 const search = document.getElementById("search");
 const place = document.querySelector(".place");
 
-search.addEventListener("keypress", (e) => {
-    if(e.key === 'Enter'){
-        getdata(search.value);
-        search.value ="";
-    }
-})
+window.addEventListener('DOMContentLoaded', () => {
+    getdata("vadodara");
+    search.addEventListener("keypress", (e) => {
+        if(e.key === 'Enter'){
+            getdata(search.value);
+            search.value ="";
+        }
+    })
+});
 
 const getdata = (location) => {
     console.log(fetchWeatherData(location).then(data => {
         if(data.cod == 404){
             place.innerText = "Invalid City";
+            clear();
         }else{
             displayweather(data);
             updateImg(data);
@@ -47,8 +51,7 @@ const displayweather = (data) =>{
     humidity.textContent=`Humidity : ${data.main.humidity} %`;
     visibility.textContent=`Visibility : ${data.visibility / 1000} Km`;
     wind.textContent=`Wind Speed : ${Math.round((data.wind.speed * 60 * 60) / 1000)} Km/h`;
-}
-
+};
 const updateImg = (data) =>{
     const container = document.getElementById("cont");
     let weather = data.weather[0].main;
