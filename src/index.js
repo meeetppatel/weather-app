@@ -19,6 +19,7 @@ const getdata = (location) => {
             place.innerText = "Invalid City";
         }else{
             displayweather(data);
+            updateImg(data);
         }
     } ));
 }
@@ -31,4 +32,32 @@ const displayweather = (data) =>{
     console.log(data.main.humidity);
     console.log(data.weather.description);
     console.log(data.weather[0].main);
+
+}
+
+const updateImg = (data) =>{
+    const container = document.getElementById("cont");
+    let weather = data.weather[0].main;
+
+    if(weather === "Rain" || weather === "Drizzle"){
+        container.classList.add("rain");
+        container.classList.remove("clear");
+        container.classList.remove("haze");
+        container.classList.remove("clouds");
+    }else if( weather === "Clouds"){
+        container.classList.add("clouds");
+        container.classList.remove("clear");
+        container.classList.remove("rain");
+        container.classList.remove("haze");
+    }else if( weather === "Haze"){
+        container.classList.add("haze");
+        container.classList.remove("clear");
+        container.classList.remove("rain");
+        container.classList.remove("clouds");
+    }else{
+        container.classList.add("clear");
+        container.classList.remove("haze");
+        container.classList.remove("rain");
+        container.classList.remove("clouds");
+    }
 }
