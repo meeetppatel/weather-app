@@ -10,6 +10,7 @@ const place = document.querySelector(".place");
 search.addEventListener("keypress", (e) => {
     if(e.key === 'Enter'){
         getdata(search.value);
+        search.value ="";
     }
 })
 
