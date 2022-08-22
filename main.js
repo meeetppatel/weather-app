@@ -90,6 +90,7 @@ const place = document.querySelector(".place");
 
 window.addEventListener('DOMContentLoaded', () => {
     getdata("vadodara");
+    updateDate();
     search.addEventListener("keypress", (e) => {
         if(e.key === 'Enter'){
             getdata(search.value);
@@ -127,7 +128,7 @@ const displayweather = (data) =>{
     let wind = document.querySelector(".wind");
 
     temp.textContent = `${Math.round(data.main.temp-273.15)} °C`;
-    weatherdet.textContent=`${data.weather[0].main}`;
+    weatherdet.textContent=`${data.weather[0].description}`;
     feelslike.textContent= `Feels Like : ${Math.round(data.main.feels_like - 273.15)} °C`;
     humidity.textContent=`Humidity : ${data.main.humidity} %`;
     visibility.textContent=`Visibility : ${data.visibility / 1000} Km`;
@@ -158,6 +159,17 @@ const updateImg = (data) =>{
         container.classList.remove("rain");
         container.classList.remove("clouds");
     }
+}
+
+const updateDate = ()=> {
+    let date = document.querySelector(".date");
+    let day = document.querySelector(".day");
+
+    let dt = new Date();
+    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    date.innerHTML = `${dt.getDate()} ${months[dt.getMonth()]}  ${dt.getFullYear()} ,`;
+    const daylist = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    day.innerHTML = daylist[dt.getDay()];
 }
 })();
 
