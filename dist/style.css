@@ -89,8 +89,11 @@ body {
     gap: 15px;
 }
 
-.timeDate {
-    font-size: 30px;
+.date {
+    font-size: 40px;
+}
+.day{
+    font-size:30px;
 }
 
 #search {
