@@ -21,11 +21,14 @@ window.addEventListener('DOMContentLoaded', () => {
 const getdata = (location) => {
     console.log(fetchWeatherData(location).then(data => {
         if(data.cod == 404){
-            place.innerText = "Invalid City";
-            clear();
+            place.innerText = "Invalid City \n Try Again!";
+            document.querySelector(".moredetails").style.visibility = "hidden";
+            document.querySelector(".det").style.visibility = "hidden";
         }else{
             displayweather(data);
             updateImg(data);
+            document.querySelector(".moredetails").style.visibility = "visible";
+            document.querySelector(".det").style.visibility = "visible";
         }
     } ));
 }
