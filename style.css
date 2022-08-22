@@ -25,28 +25,28 @@ body {
     color: var(--white);
 }
 .clear {
-    background: url("/dist/assets/clear.jpg") no-repeat 0 50%;
+    background: url("./assets/clear.jpg") no-repeat 0 50%;
     position: absolute;
     top: 0;
     left: 0;
     background-size: cover;
 }
 .rain {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)), url("/dist/assets/rain.jpg") no-repeat 0 50%;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)), url("./assets/rain.jpg") no-repeat 0 50%;
     position: absolute;
     top: 0;
     left: 0;
     background-size: cover;
 }
 .clouds {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)), url("/dist/assets/clouds.jpg") no-repeat 0 50%;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)), url("./assets/clouds.jpg") no-repeat 0 50%;
     position: absolute;
     top: 0;
     left: 0;
     background-size: cover;
 }
 .haze {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/dist/assets/Haze.jpg") no-repeat 0 50%;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./assets/Haze.jpg") no-repeat 0 50%;
     position: absolute;
     top: 0;
     left: 0;
